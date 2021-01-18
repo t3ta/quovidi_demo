@@ -9,7 +9,7 @@ services:
       - quovidi
     restart: always
     environment:
-      DOMAINS: 't3ta.net -> http://quovidi:80'
+      DOMAINS: 't3ta.net -> http://quovidi:3838'
   quovidi:
     build:
       context: .
