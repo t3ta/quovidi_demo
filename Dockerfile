@@ -6,4 +6,5 @@ RUN install2.r --error \
     digest lubridate sp cowplot dplyr \
     plyr RSQLite pander googledrive googlesheets4 \
     rjson
+RUN r -e 'devtools::install_github("r-lib/gargle@retry")'
 RUN apt-get update && apt-get install -y sqlite3
