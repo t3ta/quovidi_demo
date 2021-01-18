@@ -14,7 +14,6 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-    restart: always
     volumes:
       - .:/srv/shiny-server
     working_dir: /srv/shiny-server
