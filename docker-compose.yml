@@ -9,7 +9,7 @@ services:
       - quovidi
     restart: always
     environment:
-      DOMAINS: 'quovidi.t3ta.net -> http://quovidi:80'
+      DOMAINS: 't3ta.net -> http://quovidi:80'
   quovidi:
     build:
       context: .
@@ -17,6 +17,7 @@ services:
     restart: always
     volumes:
       - .:/srv/shiny-server
+    working_dir: /srv/shiny-server
     command:
-      sh -c 'Rscript /srv/shiny-server/www/setup_database_biogo.R'
+      sh -c 'Rscript ./www/setup_database_biogo.R'
 
