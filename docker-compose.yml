@@ -9,14 +9,15 @@ services:
       - quovidi
     restart: always
     environment:
-      DOMAINS: 't3ta.net -> http://quovidi:3838'
+      DOMAINS: 't3ta.net -> http://quovidi:8383'
+      STAGE: production
+    volumes:
+      - /data/ssl_certs:/var/lib/https-portal
   quovidi:
     build:
       context: .
       dockerfile: Dockerfile
+    ports:
+      - '8383:8383'
     volumes:
-      - .:/srv/shiny-server
-    working_dir: /srv/shiny-server
-    command:
-      sh -c 'Rscript ./app/www/setup_database_biogo.R'
-
+      - ./app:/srv/shiny-server

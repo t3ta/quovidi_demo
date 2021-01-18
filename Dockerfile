@@ -8,4 +8,5 @@ RUN install2.r --error \
     rjson
 RUN r -e 'devtools::install_github("r-lib/gargle@retry")'
 RUN apt-get update && apt-get install -y sqlite3
-EXPOSE 3838
+COPY . /tmp/
+RUN Rscript /tmp/app/www/setup_database_biogo.R
