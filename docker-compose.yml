@@ -19,5 +19,5 @@ services:
       - .:/srv/shiny-server
     working_dir: /srv/shiny-server
     command:
-      sh -c 'Rscript ./www/setup_database_biogo.R'
+      sh -c 'Rscript ./app/www/setup_database_biogo.R'
 
