@@ -1,0 +1,22 @@
+version: '3'
+services:
+  https-portal:
+    image: steveltn/https-portal:1
+    ports:
+      - '80:80'
+      - '443:443'
+    links:
+      - quovidi
+    restart: always
+    environment:
+      DOMAINS: 'quovidi.t3ta.net -> http://quovidi:80'
+  quovidi:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    restart: always
+    volumes:
+      - .:/srv/shiny-server
+    command:
+      sh -c 'Rscript /srv/shiny-server/www/setup_database_biogo.R'
+
