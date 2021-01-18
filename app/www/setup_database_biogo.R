@@ -43,6 +43,7 @@ SHEET_NAME <- "1JHuCQvNGlWn7cqrNcY3E1mlqcsjO8KRXxBEivs1-c9k"
 # LANGUAGE TABLE
 # Get the list of quests from google sheet
 
+gs4_deauth()
 lang <- read_sheet(SHEET_NAME, sheet = "language")
 dbWriteTable(con, "language", lang, overwrite = TRUE)
 
@@ -59,7 +60,7 @@ dbWriteTable(con, "language", lang, overwrite = TRUE)
 # ZONES TABLE
 # Get the list of zones form the JSON delim files
 
-  zones_raw <- fromJSON(file = "www/zones.json")[[2]]
+  zones_raw <- fromJSON(file = "zones.json")[[2]]
   zones_delim <- NULL
   zones <-  read_sheet(SHEET_NAME, sheet = "zones")
 
