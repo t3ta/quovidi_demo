@@ -32,7 +32,7 @@ library(rjson)
 #--------------------------------------------------
 # SETUP DATABASE
 
-con <- dbConnect(RSQLite::SQLite(), "/tmp/app/www/database.sql")
+con <- dbConnect(RSQLite::SQLite(), "database.sql")
 
 # NAME OF THE GOOGLE SHEET WITH THE GAME DATA
 # REPLACE WITH YOUR OWN SHEET HERE
@@ -59,7 +59,7 @@ dbWriteTable(con, "language", lang, overwrite = TRUE)
 # ZONES TABLE
 # Get the list of zones form the JSON delim files
 
-  zones_raw <- fromJSON(file = "/tmp/app/www/zones.json")[[2]]
+  zones_raw <- fromJSON(file = "zones.json")[[2]]
   zones_delim <- NULL
   zones <-  read_sheet(SHEET_NAME, sheet = "zones")
 

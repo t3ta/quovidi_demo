@@ -5,7 +5,7 @@ services:
     ports:
       - '80:80'
       - '443:443'
-    links:
+    depends_on:
       - quovidi
     restart: always
     environment:
