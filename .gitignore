@@ -1,2 +1,4 @@
 .RProfile
-app/www/database.sql
+logs/
+ssl_certs/
+
