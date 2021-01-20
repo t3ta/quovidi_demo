@@ -9,10 +9,14 @@ services:
       - quovidi
     restart: always
     environment:
-      DOMAINS: 't3ta.net -> http://quovidi:3838'
+      DOMAINS: 'quovidi.t3ta.net -> http://quovidi:3838'
       STAGE: production
+      ERROR_LOG: default
+      ACCESS_LOG: default
+      WEBSOCKET: 'true'
     volumes:
-      - /data/ssl_certs:/var/lib/https-portal
+      - ./ssl_certs:/var/lib/https-portal
+      - ./logs:/var/log/nginx
   quovidi:
     build:
       context: .
